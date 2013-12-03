@@ -11,12 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <div class="container" ng-init="names=['Paul','Kathrine']">
+        <div class="container" ng-init="costumers=[{name:'Paul',city:'Perm'},{name:'Kathrine',city:'ProPerm'}]">
             Name:{{name}}<br />
             <input type="text" ng-model="name" />
             <h3>Looping with ng-repeat Directive</h3>
             <ul>
-                <li ng-repeat="name in names">{{ name }}</li>
+                <li ng-repeat="costumer in costumers | filter:name | orderBy:'name'">{{ costumer.name | uppercase}} from {{costumer.city| lowercase}}</li>
             </ul>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js"></script>
