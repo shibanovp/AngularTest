@@ -6,13 +6,16 @@ and open the template in the editor.
 -->
 <html ng-app>
     <head>
-        <title>TODO supply a title</title>
+        <title>AngularJS</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <div class="container">
-            Name: {{ name }}<br />
+        <div class="container" ng-init="names=['Paul','Kathrine']">
+            <h3>Looping with ng-repeat Directive</h3>
+            <ul>
+                <li ng-repeat="name in names">{{ name }}</li>
+            </ul>
             <input type="text" ng-model="name" />
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js"></script>
