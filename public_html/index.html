@@ -10,15 +10,25 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
     </head>
-    <body>
-        <div class="container" ng-init="costumers=[{name:'Paul',city:'Perm'},{name:'Kathrine',city:'ProPerm'}]">
+    <body ng-controller="SimpleController">
+        <div class="container" >
             Name:{{name}}<br />
             <input type="text" ng-model="name" />
             <h3>Looping with ng-repeat Directive</h3>
             <ul>
-                <li ng-repeat="costumer in costumers | filter:name | orderBy:'name'">{{ costumer.name | uppercase}} from {{costumer.city| lowercase}}</li>
+                <li ng-repeat="customer in customers | filter:name | orderBy:'name'">{{ customer.name | uppercase}} from {{customer.city| lowercase}}</li>
             </ul>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js"></script>
+        <script>
+            function SimpleController($scope){
+                $scope.customers =[
+                    {name:'Dave Jones',city:'Phoenix'},
+                    {name:'Jamie Rieley',city:'Atlanta'},
+                    {name:'Heedy Wahlin',city:'Chandler'},
+                    {name:'Thomas Winter',city:'Seattle'},
+                ];
+            }
+        </script>
     </body>
 </html>
