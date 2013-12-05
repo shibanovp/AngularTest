@@ -1,0 +1,9 @@
+<div class="container" >
+    <h1>View1</h1>
+    Filter:<br />
+    <input type="text" ng-model="filter.name" />
+    <h3>Looping with ng-repeat Directive</h3>
+    <ul>
+        <li ng-repeat="customer in customers | filter:filter.name | orderBy:'name'">{{ customer.name | uppercase}} from {{customer.city| lowercase}}</li>
+    </ul>
+</div>

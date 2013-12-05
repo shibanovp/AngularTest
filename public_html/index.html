@@ -11,17 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width">
     </head>
     <body ng-controller="SimpleController">
-        <div class="container" >
-            Name:{{name}}<br />
-            <input type="text" ng-model="name" />
-            <h3>Looping with ng-repeat Directive</h3>
-            <ul>
-                <li ng-repeat="customer in customers | filter:name | orderBy:'name'">{{ customer.name | uppercase}} from {{customer.city| lowercase}}</li>
-            </ul>
-        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.js"></script>
+        <div ng-view=""></div>
         <script>
-            var demoApp = angular.module('demoApp',[]);
+            var demoApp = angular.module('demoApp',['ngRoute']);
             var controllers={};
             controllers.SimpleController = function ($scope){
                 $scope.customers =[
@@ -33,6 +28,20 @@ and open the template in the editor.
             }
             demoApp.controller(controllers);
             
+            demoApp.config(function($routeProvider){
+                $routeProvider
+                        .when('/',
+                    {
+                        controller: 'SimpleController',
+                        templateUrl:'partials/View1.html'
+                    })
+                        .when('/partial',
+                    {
+                        controller: 'SimpleController',
+                        templateUrl:'partials/View2.html'
+                    })
+                        .otherwise( {redirectTo:'/'});
+            });
         </script>
     </body>
 </html>
