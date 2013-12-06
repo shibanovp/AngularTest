@@ -4,57 +4,34 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html ng-app="demoApp">
+<html ng-app="">
     <head>
-        <title>AngularJS</title>
+        <title>AngularJS Tutorial</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js"></script>
+        
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.js"></script>-->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        <script src="js/todo.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/todo.css">
     </head>
     <body>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.js"></script>
-        <div ng-view=""></div>
-        <script>
-            var demoApp = angular.module('demoApp', ['ngRoute'])
-                    .factory('simpleFactory', function() {
-                        var factory = {};
-                        var customers = [
-                            {name: 'Dave Jones', city: 'Phoenix'},
-                            {name: 'Jamie Rieley', city: 'Atlanta'},
-                            {name: 'Heedy Wahlin', city: 'Chandler'},
-                            {name: 'Thomas Winter', city: 'Seattle'},
-                        ];
-                        factory.getCustomers = function() {
-                            return customers;
-                        }
-                        return factory;
-                    })
-                    .controller('SimpleController',function($scope,simpleFactory){
-                        $scope.customers= simpleFactory.getCustomers();
-                $scope.addCustomer = function() {
-                            $scope.customers.push({name: $scope.newCustomer.name, city: $scope.newCustomer.city});
-
-                        }
-                    });
-                        
-            
-
-            demoApp.config(function($routeProvider) {
-                $routeProvider
-                        .when('/',
-                                {
-                                    controller: 'SimpleController',
-                                    templateUrl: 'partials/View1.html'
-                                })
-                        .when('/view2',
-                                {
-                                    controller: 'SimpleController',
-                                    templateUrl: 'partials/View2.html'
-                                })
-                        .otherwise({redirectTo: '/'});
-
-            });
-        </script>
-    </body>
+        <div class="container" ng-controller="TodoCtrl">
+            <h2>Total todos: {{getTotalTodos()}}</h2>
+            <ul class="unstyled">
+                <li ng-repeat="todo in todos">{{todo.text}}
+                    <input type="checkbox" name="" id="" ng-model="todo.done">
+                    <span class="done-{{todo.done}}">{{todo.done}}</span>
+                </li>
+            </ul>
+            <form action="" class="form-horizontal">
+                <input type="text" name="" id="" ng-model="formTodoText" ng-model-instant="">
+                <button type="button" class="btn" ng-click="addTodo()"><span class="glyphicon glyphicon-plus">Add</span></button>
+            </form>
+            <button type="button" class="btn btn-large" ng-click="clearCompleted()"><span class="glyphicon glyphicon-trash">Clear Completed</span></button>
+        </div>
+    </body> 
 </html>
