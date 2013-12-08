@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en" ng-app="HelloApp">
+<html lang="en" ng-app="Twitter">
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
-        <script src="js/libs/angular.js/angular.js"></script>
-        <script src="js/directives.js"></script>
+        <title>Angular</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-resource.js"></script>
+        <script src="js/twitter.js"></script>
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     </head>
     <body>
-<hello-world name="Paul"></hello-world>
+        <div ng-controller="TwitterCtrl"></div>
     </body>
 </html>
