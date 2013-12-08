@@ -1,14 +1,25 @@
 <!doctype html>
-<html lang="en" ng-app="Twitter">
+<html ng-app="">
     <head>
         <meta charset="UTF-8">
-        <title>Angular</title>
+        <title>Angular Album</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-resource.js"></script>
-        <script src="js/twitter.js"></script>
+        <script src="js/album.js"></script>
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/album.css">
     </head>
     <body>
-        <div ng-controller="TwitterCtrl"></div>
+        <div ng-controller="AlbumCtrl">
+            <div id="albumImage"><img src="{{currentImage.image}}" alt="{{currentImage.description}}"></div>
+            <div id="thumbWrapper">
+                <ul id="thumblist">
+                    <li ng-repeat="image in images">
+                        <img src="{{image.thumbnail}}" alt="{{image.description}}">
+                    </li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
