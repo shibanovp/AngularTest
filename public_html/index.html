@@ -12,10 +12,13 @@
     </head>
     <body>
         <div ng-controller="AlbumCtrl">
+            <div id="header">
+                <h2>{{currentImage.description}}</h2>
+            </div>
             <div id="albumImage"><img src="{{currentImage.image}}" alt="{{currentImage.description}}"></div>
             <div id="thumbWrapper">
                 <ul id="thumblist">
-                    <li ng-repeat="image in images">
+                    <li ng-repeat="image in images" ng-click="setCurrentImage(image)">
                         <img src="{{image.thumbnail}}" alt="{{image.description}}">
                     </li>
                 </ul>

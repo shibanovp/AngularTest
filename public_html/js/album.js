@@ -13,4 +13,7 @@ function AlbumCtrl($scope){
         {image: 'img/project5@2x.png', thumbnail: 'img/project5.png',description:'Image 05 decription'}
     ];
     $scope.currentImage =_.first($scope.images);
+    $scope.setCurrentImage = function(image){
+        $scope.currentImage = image;
+    }
 }

@@ -12,6 +12,7 @@ and open the template in the editor.
     margin-bottom: 10px;
 }
 #albumImage img{
+    width: 100%;
     display: block;
     margin: auto;
 }
