@@ -7,6 +7,17 @@ and open the template in the editor.
     Created on : Dec 8, 2013, 6:42:15 AM
     Author     : Paul
 */
+#header{
+    width: 620px;
+    position: relative;
+}
+#header h2{
+    display: inline;
+}
+#header select{
+    position: absolute;
+    right: 0;
+}
 #albumImage{
     width: 620px;
     margin-bottom: 10px;
